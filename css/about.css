@@ -805,6 +805,12 @@ section.gray .alll .para p {
 .testimonials .background .packimg {
   height: 100%;
 }
+@media (min-width: 1800px) {
+  .testimonials .background .packimg {
+    width: 100%;
+    height: auto;
+  }
+}
 .testimonials .container {
   color: white;
 }

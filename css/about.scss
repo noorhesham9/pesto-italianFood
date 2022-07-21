@@ -774,6 +774,14 @@ section.gray {
             height: 100%;
         }
     }
+    @media(min-width:1800px) {
+        .background {
+            .packimg {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
     .container {
         color: white;
         h2 {
