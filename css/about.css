@@ -800,7 +800,10 @@ section.gray .alll .para p {
   content: "";
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.testimonials .background .packimg {
+  height: 100%;
 }
 .testimonials .container {
   color: white;
@@ -814,7 +817,7 @@ section.gray .alll .para p {
 .testimonials .container .JamesWilliams,
 .testimonials .container .KateMcMillan,
 .testimonials .container .PeterWilson {
-  display: none;
+  opacity: 0;
   text-align: center !important;
   margin: 40px auto 0;
   width: 690px;
@@ -824,7 +827,23 @@ section.gray .alll .para p {
 .testimonials .container .JamesWilliams.active,
 .testimonials .container .KateMcMillan.active,
 .testimonials .container .PeterWilson.active {
-  display: block;
+  opacity: 1;
+}
+.testimonials .container .JoannaSmith.disapper,
+.testimonials .container .JamesWilliams.disapper,
+.testimonials .container .KateMcMillan.disapper,
+.testimonials .container .PeterWilson.disapper {
+  -webkit-animation: disapper 0.6s;
+          animation: disapper 0.6s;
+  display: none;
+}
+.testimonials .container .JoannaSmith.show,
+.testimonials .container .JamesWilliams.show,
+.testimonials .container .KateMcMillan.show,
+.testimonials .container .PeterWilson.show {
+  -webkit-animation: show 0.5s;
+          animation: show 0.5s;
+  opacity: 1;
 }
 .testimonials .container .JoannaSmith p,
 .testimonials .container .JamesWilliams p,
@@ -850,6 +869,8 @@ section.gray .alll .para p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
   gap: 10px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -857,11 +878,31 @@ section.gray .alll .para p {
 }
 .testimonials .container .images img {
   border-radius: 50%;
+  cursor: pointer;
+}
+.testimonials .container .images div.active {
+  position: relative;
+}
+.testimonials .container .images div.active::after {
+  position: absolute;
+  content: "\f102";
+  font-weight: 400;
+  font-family: "FontAwesome";
+  font-size: 22px;
+  line-height: 28px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-animation: UPandDown 0.6s infinite;
+          animation: UPandDown 0.6s infinite;
+  color: #00ff3c;
 }
 .testimonials .container .images div.active img {
-  border: 4px solid #28a745;
+  position: relative;
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
   border-radius: 50%;
-  animation: alternate-reverse;
+  border: 3px solid #18bd3e;
 }
 
 footer {
@@ -1061,4 +1102,60 @@ section h2 {
   letter-spacing: 0;
   font-size: 28px;
   line-height: 1.5;
+}
+
+@-webkit-keyframes UPandDown {
+  0% {
+    bottom: -25px;
+  }
+  50% {
+    bottom: -35px;
+  }
+  100% {
+    bottom: -25px;
+  }
+}
+
+@keyframes UPandDown {
+  0% {
+    bottom: -25px;
+  }
+  50% {
+    bottom: -35px;
+  }
+  100% {
+    bottom: -25px;
+  }
+}
+@-webkit-keyframes disapper {
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes disapper {
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

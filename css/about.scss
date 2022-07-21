@@ -768,7 +768,10 @@ section.gray {
             content: "";
             width: 100%;
             height: 100%;
-            background-color: rgba($color: #000000, $alpha: .2);
+            background-color: rgba($color: #000000, $alpha: .3);
+        }
+        .packimg {
+            height: 100%;
         }
     }
     .container {
@@ -782,9 +785,18 @@ section.gray {
         .JamesWilliams,
         .KateMcMillan,
         .PeterWilson {
-            display: none;
+            opacity: 0;
             &.active {
-                display: block;
+                // display: block;
+                opacity: 1;
+            }
+            &.disapper {
+                animation: disapper 0.6s;
+                display: none;
+            }
+            &.show {
+                animation: show 0.5s;
+                opacity: 1;
             }
             text-align: center !important;
             margin: 40px auto 0;
@@ -808,15 +820,31 @@ section.gray {
             margin-top: 40px;
             img {
                 border-radius: 50%;
+                cursor: pointer;
             }
             display: flex;
+            flex-flow: wrap;
             gap: 10px;
             justify-content: center;
             div.active {
+                position: relative;
+                &::after {
+                    position: absolute;
+                    content: "\f102";
+                    font-weight: 400;
+                    font-family: 'FontAwesome';
+                    font-size: 22px;
+                    line-height: 28px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    animation: UPandDown 0.6s infinite;
+                    color: #00ff3c;
+                }
                 img {
-                    border: 4px solid #28a745;
+                    position: relative;
+                    transform: translateY(-3px);
                     border-radius: 50%;
-                    animation: alternate-reverse;
+                    border: 3px solid #18bd3e;
                 }
             }
         }
@@ -1046,5 +1074,35 @@ section {
         letter-spacing: 0;
         font-size: 28px;
         line-height: 1.5;
+    }
+}
+
+@keyframes UPandDown {
+    0% {
+        bottom: -25px;
+    }
+    50% {
+        bottom: -35px;
+    }
+    100% {
+        bottom: -25px;
+    }
+}
+
+@keyframes disapper {
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
