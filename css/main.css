@@ -1066,6 +1066,9 @@ ul {
           box-sizing: border-box;
   width: auto;
   padding: 0px;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 .featured #fimages .img1 button a,
 .featured #fimages .img2 button a,
