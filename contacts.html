@@ -17,6 +17,34 @@
     <!-- main template css file  -->
     <link rel="stylesheet" href="css/contacts.css">
     <link href="https://www.cssscript.com/demo/sticky.css" rel="stylesheet" type="text/css">
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.15.1/css/ol.css" type="text/css">
+    <style>
+        .map {
+            width: 100%;
+        }
+        
+        @media (min-width: 992px) {
+            .map {
+                height: 530px !important;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .map {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .map {
+                height: 250px;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.15.1/build/ol.js"></script>
 </head>
 
 <body>
@@ -51,13 +79,19 @@
 
     <div class="sidebar" id="sideB">
         <ul class="sidelinks">
-            <li> <a href="#">HOME</a>
+            <li> <a href="index.html"><span class="Home">HOME</span>  </a>
             </li>
-            <li> <a href="#">ABOUT</a>
+            <li>
+                <a href="about.html">
+                    <span class="Home">ABOUT</span></a>
             </li>
-            <li> <a href="#">Typography</a>
+            <li>
+                <a href="typography.html">
+                    <span class="Home">Typography</span></a>
             </li>
-            <li> <a href="#">CONTACTS</a>
+            <li>
+                <a href="contacts.html">
+                    <span class="Home">CONTACTS</span></a>
             </li>
         </ul>
         <div class="sidebook" id="sidebo">
@@ -82,6 +116,91 @@
         </div>
     </a>
     <!-- end fixed top  -->
+    <!-- strat call and location  -->
+    <section class="callAndLocation">
+        <div class="container">
+            <div class="allcallf">
+                <div class="call">
+                    <div class="box-icon-classic">
+                        <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="box-icon-caption">
+                            <h4><a href="tel:#">1-800-123-1234</a></h4>
+                            <p>You can call us anytime</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="location">
+                    <div class="box-icon-classic">
+                        <div class="icon"><i class="fa-solid fa-paper-plane"></i></div>
+                        <div class="box-icon-caption">
+                            <h4><a href="#">51 Francis Street, San Diego, CA 91702 United States</a></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="linkemail">
+                    <div class="box-icon-classic">
+                        <div class="icon"><i class="fa-solid fa-map"></i></div>
+                        <div class="box-icon-caption">
+                            <h4><a href="mailto:#">info@demolink.org</a></h4>
+                            <p>Feel free to email us your questions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end call and location  -->
+    <!-- strat map -->
+    <div id="map" class="map"></div>
+    <script type="text/javascript">
+        var map = new ol.Map({
+            target: 'map',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                })
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([37.41, 8.82]),
+                zoom: 4
+            })
+        });
+    </script>
+    <!-- end map  -->
+    <!-- start get in touch  -->
+    <section class="getInTouch gray">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-9 col-lg-7">
+                    <h3>Get in Touch</h3>
+                    <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate">
+                        <div class="form-wrap">
+                            <input class="form-input form-control-has-validation" placeholder="Your Name" id="contact-name" type="text" name="name" data-constraints="@Required"><span class="form-validation"></span>
+                            <!-- <label class="form-label rd-input-label" for="contact-name">Your Name</label> -->
+                        </div>
+                        <div class="form-wrap">
+                            <input class="form-input form-control-has-validation" placeholder="E-mail" id="contact-email" type="email" name="email" data-constraints="@Email @Required"><span class="form-validation"></span>
+                            <!-- <label class="form-label rd-input-label" for="contact-email">E-mail</label> -->
+                        </div>
+                        <div class="form-wrap">
+                            <input class="form-input form-control-has-validation" placeholder="Phone" id="contact-phone" type="text" name="phone" data-constraints="@Numeric"><span class="form-validation"></span>
+                            <!-- <label class="form-label rd-input-label" for="contact-phone">Phone</label> -->
+                        </div>
+                        <div class="form-wrap">
+                            <!-- <label class="form-label rd-input-label" for="contact-message"> Message</label> -->
+                            <textarea placeholder="Message" class="form-input form-control-has-validation form-control-last-child" id="contact-message" name="message" data-constraints="@Required"></textarea><span class="form-validation"></span>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-sm-7 col-lg-5">
+                                <button class="button button-block button-lg button-primary" type="submit">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end get in touch  -->
     <!-- start footer  -->
     <footer>
         <div class="container">
@@ -119,7 +238,7 @@
                 </ul>
             </div>
             <p class="rights"><span>©&nbsp; </span><span class="copyright-year">2022</span><span>&nbsp;</span><span>Pesto</span><span>.&nbsp;</span><span>All Rights Reserved.</span><span>&nbsp;</span><a href="https://www.templatemonster.com">Privacy Policy</a>. Design&nbsp;by&nbsp;
-                <a href="#">dev.noor</a>
+                <a href="https://github.com/noorhesham9">dev.noor</a>
             </p>
         </div>
     </footer>
